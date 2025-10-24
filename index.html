@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VitalFlow: Blood Donation Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/heroicons/2.1.3/24/outline/heroicons.min.css" integrity="sha512-MatKmhSpElJ0UF/72QJbOqELcHfL4eXwpltrV2obPT/K87SlO4KkSBamrJLKqt3DBk2J1sVACoAlZ89LpBfvxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<style>
+      /* 3D Blood Drop Animation */
+      .drop-container {
+        perspective: 1000px;
+      }
+
+      .drop {
+        width: 180px;
+        height: 180px;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: spin 20s linear infinite;
+      }
+
+      .drop-main {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50% 120%, #ef4444, #b91c1c);
+        border-radius: 50% 50% 50% 0;
+        transform: rotate(-45deg);
+        box-shadow: -10px 10px 20px rgba(0,0,0,0.2), inset 10px -10px 20px rgba(255,255,255,0.2);
+      }
+      
+      /* Adding a little shine to make it look more 3D */
+      .drop-main::before {
+        content: '';
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        width: 30%;
+        height: 30%;
+        background: radial-gradient(circle, rgba(255,255,255,0.5), transparent 70%);
+        border-radius: 50%;
+        transform: rotate(45deg);
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotateY(0deg) rotateX(10deg);
+        }
+        to {
+          transform: rotateY(360deg) rotateX(10deg);
+        }
+      }
+    </style>
+</head>
+  <body class="bg-gray-50">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
